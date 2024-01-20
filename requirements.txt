@@ -1,2 +1,1 @@
-selenium
-chromedriver-autoinstaller
+selenium = 4.16.0

@@ -6,7 +6,6 @@ on:
   schedule:
     - cron: '0 6 * * *'
   
-
 jobs:
   selenium:
     runs-on: ubuntu-latest
@@ -15,21 +14,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install Chromedriver
-        run: |
-          CHROMEDRIVER_VERSION="114.0.5735.90"
-          wget -q "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
-          unzip chromedriver_linux64.zip -d /usr/local/bin
-          rm chromedriver_linux64.zip
-          chmod +x /usr/local/bin/chromedriver
-
-      - name: Install Chrome        
-        run: |
-          wget --no-verbose -O /tmp/chrome.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_114.0.5735.90-1_amd64.deb
-          sudo apt install -y --allow-downgrades /tmp/chrome.deb
-          rm /tmp/chrome.deb
- 
-
+      - name: Setup Chrome        
+        uses: browser-actions/setup-chrome@latest
           
       - name: Install Xvfb
         run: |
@@ -46,8 +32,6 @@ jobs:
 
       - name: Setup Python
         uses: actions/setup-python@v3
-        with:
-          python-version: 3.8
 
       - name: Install dependencies
         run: pip install -r requirements.txt
