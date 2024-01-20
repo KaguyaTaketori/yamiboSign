@@ -19,7 +19,7 @@ print('Chrome driver version: ' + driver.capabilities['chrome']['chromedriverVer
 
 # login
 # username and password are stored in environment variables in .env file
-username = os.getenv('USERNAME')
+username = os.getenv('USERNAME') + '1'
 password = os.getenv('PASSWORD')
 print('Username: ' + username)
 print('Password: ' + password)
