@@ -45,13 +45,14 @@ def find_element_and_send_keys(driver, css_selector, keys):
         print(e)
 
 def login(driver, username, password):
-    driver.get(url['login_url'])
+    login_url = url['login_url']
+    driver.get(login_url)
     find_element_and_send_keys(driver, css_selector['username_css_selector'], username)
     find_element_and_send_keys(driver, css_selector['password_css_selector'], password)
     driver.find_element(By.CSS_SELECTOR, css_selector['login_button_css_selector']).click()
     print('Waiting for login...')
     try:
-        WebDriverWait(driver, wait_time).until(EC.url_to_be(url['home_url']))
+        WebDriverWait(driver, wait_time).until(EC.url_changes(login_url))
         print('Login success!')
     except Exception as e:
         print('Login failed!')
@@ -71,6 +72,7 @@ def sign(driver):
 if __name__ == '__main__':
     username = os.getenv('USERNAME', '')
     password = os.getenv('PASSWORD', '')
+    print('ArtemisK' == username)
     if not username or not password:
         print('Username or password not set in environment variables.')
         exit(1)
