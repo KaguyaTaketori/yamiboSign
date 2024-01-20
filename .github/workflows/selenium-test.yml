@@ -38,4 +38,7 @@ jobs:
 
       - name: Run Selenium tests
         run: python main.py
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         
