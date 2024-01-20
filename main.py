@@ -19,7 +19,7 @@ sign_button_css_selector = "#wp > div.ct2.cl > div.sd > div.bm.signbtn.cl > a"
 # set chrome options and start chrome
 service = Service(ChromeDriverManager().install())
 chrome_options = Options()
-# chrome_options.add_argument('--headless')
+chrome_options.add_argument('--headless')
 driver = webdriver.Chrome(options=chrome_options, service=service)
 print('Chrome started.')
 # print Chrome version
