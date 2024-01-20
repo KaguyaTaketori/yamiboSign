@@ -1,3 +1,5 @@
+import os
+
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
@@ -11,8 +13,10 @@ chrome_options.add_argument('--headless')
 driver = webdriver.Chrome(options=chrome_options, service=service)
 
 # login
+username = os.getenv('USERNAME')
+password = os.getenv('PASSWORD')
 driver.get('https://bbs.yamibo.com/member.php?mod=logging&action=login')
-driver.find_element(By.CSS_SELECTOR, "input[name='username']").send_keys('ArtemisK')
+driver.find_element(By.CSS_SELECTOR, "input[name='username']").send_keys(username)
 driver.find_element(By.CSS_SELECTOR, "input[name='password']").send_keys('D5YPgaMCd.VA9nQ')
 driver.find_element(By.CSS_SELECTOR, "button[name='loginsubmit']").click()
 
