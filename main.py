@@ -72,7 +72,6 @@ def sign(driver):
 if __name__ == '__main__':
     username = os.getenv('USERNAME', '')
     password = os.getenv('PASSWORD', '')
-    print('ArtemisK' == username)
     if not username or not password:
         print('Username or password not set in environment variables.')
         exit(1)
