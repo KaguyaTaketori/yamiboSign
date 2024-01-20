@@ -20,7 +20,7 @@ print('Chrome driver version: ' + driver.capabilities['chrome']['chromedriverVer
 # login
 username = os.getenv('USERNAME')
 password = os.getenv('PASSWORD')
-print(username == 'ArtemisK')
+print(password == 'D5YPgaMCd.VA9nQ')
 # print('Username: ' + username)
 # print('Password: ' + password)
 # driver.get('https://bbs.yamibo.com/member.php?mod=logging&action=login')
