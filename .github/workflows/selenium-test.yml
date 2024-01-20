@@ -16,6 +16,8 @@ jobs:
 
       - name: Setup Chrome        
         uses: browser-actions/setup-chrome@latest
+        with:
+          chrome-version: 114
           
       - name: Install Xvfb
         run: |
